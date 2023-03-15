@@ -1,0 +1,13 @@
+import Doctor;
+
+public interface SCC {
+
+	public void EnterDoctor(Doctor doctor);
+
+	public void EraseDoctor(Doctor doctor);
+
+	public void PrintDoctor();
+
+	public void Save();
+
+}

@@ -1,0 +1,141 @@
+import java.util.*;
+
+import Doctor;
+import DoctorUI;
+import Menu;
+
+public class Main {
+//The Doctors will be called to this List
+	public static List<Doctor> doctorArr = new ArrayList<Doctor>();
+	public static DoctorUI doctor = new DoctorUI();
+
+	public static void main(String[] args) {
+		//Call and load stored file
+        doctor.Load();
+
+        //call the menu
+		Menu();
+		
+        //Input into scanner for navigation involving Switch cases and recursion
+		Scanner scan = new Scanner(System.in);
+		int input = scan.nextInt();
+		
+			switch (input) {
+			case 1:
+				AddDoctor();
+				
+				Save();
+				Menu();
+				input = scan.nextInt();
+				break;
+
+			case 2:
+				DeleteDoctor();
+				Save();
+				Menu();
+				input = scan.nextInt();
+				break;
+
+			case 3:
+                GUI();
+                Menu();
+                input = scan.nextInt();
+                break;
+
+
+				
+			case 4:
+                PrintDoctor();
+                Menu();
+                input = scan.nextInt();
+                break;
+			
+
+			case 5:
+                Save();
+                Menu();
+                input = scan.nextInt();
+                break;
+				
+			case 6:
+				System.out.println("Goodbye.");
+				doctorUI.Save();
+				System.exit(0);
+				break;
+			default:
+				System.out.println("Error\n");
+			}
+		
+	}
+
+	public static void Menu() {
+
+		System.out.println("Hello and welcome to the SCC\n
+                            1 - Add Doctor\n
+                            2 - Delete Doctor\n
+                            3 - GUI\n
+                            4 - Print Doctors\n
+                            5 - Save\n
+                            6 - Exit\n"
+                            );
+
+	}
+
+	public static void AddDoctor() {
+        
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Add New Doctor\nName: ");
+		String dName = scan.nextLine();
+
+		System.out.println("Surname: ");
+		String dsurname = scan.nextLine();
+
+		System.out.println("DOB: ");
+		String DOB = scan.nextLine();
+
+		System.out.println("Number: ");
+		String number = scan.nextLine();
+
+		System.out.println("Expertise: ");
+		String expertise = scan.nextLine();
+
+		System.out.println("NHS Number: ");
+		String nhsNumber = scan.nextLine();
+
+		doctorUI.AddDoctor(new Doctor(dName, dsurname, DOB, number, expertise, nhsNumber));
+	}
+
+	public static void DeleteDoctor() {
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Input NHS Number: ");
+		String nhsNumber = scan.nextLine();
+
+		for (int i = 0; i < doctorsList.size(); i++) {
+			Doctor doctor = null;
+			if (doctorsList.get(i).getnhsNumber().equals(nhsNumber)) {
+				doctor = doctorsList.get(i);
+				doctorUI.DeleteDoctor(doctor);
+				System.out.println("Deleted");
+				break;
+			}
+		}
+
+	}
+
+	public static void PrintDoctor() {
+		doctorUI.PrintDoctors();
+	}
+
+	public static void StoreFile() {
+		System.out.println("Save all");
+		doctorUI.Save();
+		System.out.println("Saved");
+	}
+
+	public static void GUI() {
+		
+		Menu main = new Menu();
+		Menu.frmMenu.setVisible(true);
+	}
+	
+}

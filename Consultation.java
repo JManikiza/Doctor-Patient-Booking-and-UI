@@ -1,7 +1,10 @@
+package Project;
+
 import java.time.*;
 
-import javax.crypto.SecretKey;
 
+//This class receives the information stored from other classes and also gets read
+//through other classes
 public class Consultation {
 
 	private LocalDate date;
@@ -10,9 +13,8 @@ public class Consultation {
 	private String notes;
 	private Patient patient;
 	private Doctor doctor;
-	private SecretKey notesEncryptKey;
 
-	public Consultation(LocalDate date, LocalTime time, String cost, String notes, Patient patient, Doctor doctor, SecretKey _notesEncryptKey) {
+	public Consultation(LocalDate date, LocalTime time, String cost, String notes, Patient patient, Doctor doctor) {
 		super();
 		this.date = date;
 		this.time = time;
@@ -20,9 +22,8 @@ public class Consultation {
 		this.notes = notes;
 		this.patient = patient;
 		this.doctor = doctor;
-		this.notesEncryptKey = _notesEncryptKey;
 	}
-
+//Standard get/set methods
 	public LocalDate getDate() {
 		return date;
 	}
@@ -69,14 +70,6 @@ public class Consultation {
 
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
-	}
-
-	public SecretKey getNotesEncryptKey() {
-		return notesEncryptKey;
-	}
-
-	public void setNotesEncryptKey(SecretKey notesEncryptKey) {
-		this.notesEncryptKey = notesEncryptKey;
 	}
 
 }

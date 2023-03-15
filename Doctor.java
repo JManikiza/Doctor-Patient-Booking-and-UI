@@ -1,4 +1,7 @@
-public class Doctor extends Person {
+package Project;
+
+
+public class Doctor extends PatientDetails {
 
 	private String expertize;
 	private String nhsNumber;
@@ -11,8 +14,6 @@ public class Doctor extends Person {
 		this.expertize = expertize;
 		this.nhsNumber = nhsNumber;
 	}
-
-	
 
 	public String getExpertize() {
 		return expertize;

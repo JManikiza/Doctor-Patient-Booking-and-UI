@@ -1,3 +1,8 @@
+package Project;
+
+
+//This class receives the information stored from other classes and also gets read
+//through other classes
 public class PatientDetails {
 
 	private String name;
@@ -5,6 +10,15 @@ public class PatientDetails {
 	private String DOB;
 	private String number;
 
+        public PatientDetails(String name, String surname, String DOB, String number) {
+		super();
+		this.name = name;
+		this.surname = surname;
+		this.DOB = DOB;
+		this.number = number;
+	}
+        
+//Standard get/set methods
 	public String getName() {
 		return name;
 	}
@@ -37,12 +51,5 @@ public class PatientDetails {
 		this.number = number;
 	}
 
-	public PatientDetails(String name, String surname, String DOB, String number) {
-		super();
-		this.name = name;
-		this.surname = surname;
-		this.DOB = DOB;
-		this.number = number;
-	}
 
 }
